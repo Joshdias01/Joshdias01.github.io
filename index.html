@@ -7,15 +7,34 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="loading-text">Josh</span>
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cursor Follower -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
     <!-- Navigation -->
     <nav class="nav" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <span class="logo-text">Josh</span>
+                <div class="logo-glow"></div>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
@@ -23,6 +42,9 @@
                 <li><a href="#journey" class="nav-link">My Journey</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -39,36 +61,86 @@
                 <div class="shape shape-2"></div>
                 <div class="shape shape-3"></div>
                 <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+                <div class="shape shape-6"></div>
             </div>
+            <div class="grid-overlay"></div>
         </div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>Available for opportunities</span>
+                    </div>
                     <h1 class="hero-title">
                         <span class="greeting">Hello, I'm</span>
-                        <span class="name">Joshua Dias</span>
+                        <span class="name" data-text="Joshua Dias">Joshua Dias</span>
+                        <div class="title-underline"></div>
                     </h1>
-                    <p class="hero-tagline">Java Developer • Data Science Enthusiast</p>
+                    <p class="hero-tagline">
+                        <span class="typewriter" data-words="Java Developer,Data Science Enthusiast,Problem Solver,Tech Explorer"></span>
+                        <span class="cursor-blink">|</span>
+                    </p>
                     <p class="hero-description">
-                        Hey there! I’m Josh — currently pursuing my B.E. in CSE (Data Science) at SJBIT, Bangalore. I love turning complex problems into clean, efficient code.
-                        I believe in learning by building, whether it’s crafting management systems in Java or solving tricky LeetCode problems at 2 AM (coffee is my sidekick ☕).
-                        When I’m not coding, you’ll probably find me exploring new tech tools, refining my problem-solving skills, or planning my next big project.
-
+                        Hey there! I'm Josh — currently pursuing my B.E. in CSE (Data Science) at SJBIT, Bangalore. I love turning complex problems into clean, efficient code.
+                        I believe in learning by building, whether it's crafting management systems in Java or solving tricky LeetCode problems at 2 AM (coffee is my sidekick ☕).
+                        When I'm not coding, you'll probably find me exploring new tech tools, refining my problem-solving skills, or planning my next big project.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#about" class="btn btn-primary">Learn More About Me</a>
+                        <a href="#about" class="btn btn-primary">
+                            <span>Learn More About Me</span>
+                            <div class="btn-glow"></div>
+                        </a>
                         <a href="#contact" class="btn btn-outline">
                             <i class="fas fa-envelope"></i>
-                            Get In Touch
+                            <span>Get In Touch</span>
                         </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-label">Problems Solved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="5">0</div>
+                            <div class="stat-label">Projects Built</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="2">0</div>
+                            <div class="stat-label">Years Learning</div>
+                        </div>
                     </div>
                 </div>
                 <div class="hero-image">
                     <div class="image-container">
-                        <img src="assets/profile-photo.jpg" alt="Your Name" class="profile-img">
-                        <div class="image-glow"></div>
+                        <div class="image-frame">
+                            <img src="assets/profile-photo.jpg" alt="Joshua Dias" class="profile-img">
+                            <div class="image-glow"></div>
+                            <div class="image-border"></div>
+                        </div>
+                        <div class="floating-icons">
+                            <div class="icon-item" style="--delay: 0s;">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div class="icon-item" style="--delay: 1s;">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="icon-item" style="--delay: 2s;">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <div class="icon-item" style="--delay: 3s;">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll Down</div>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
             </div>
         </div>
     </section>
@@ -77,30 +149,82 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">Get To Know Me</span>
                 <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Get to know me better</p>
+                <p class="section-subtitle">Passionate developer crafting digital experiences</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a passionate developer with a love for creating innovative solutions that make a difference. Currently diving deep into modern web technologies and building my expertise one project at a time.</p>
-                    <p>My journey in tech is just beginning, but I'm committed to continuous learning and growth. I believe in the power of clean code, beautiful design, and meaningful user experiences.</p>
+                    <div class="text-content">
+                        <p class="highlight-text">I'm a passionate developer with a love for creating innovative solutions that make a difference. Currently diving deep into modern web technologies and building my expertise one project at a time.</p>
+                        <p>My journey in tech is just beginning, but I'm committed to continuous learning and growth. I believe in the power of clean code, beautiful design, and meaningful user experiences.</p>
+                        
+                        <div class="personal-info">
+                            <h3>Quick Facts</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Bangalore, India</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>B.E. CSE (Data Science)</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>Java Enthusiast</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-coffee"></i>
+                                    <span>Coffee Lover</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="education">
                         <h3>Education & Learning</h3>
                         <div class="education-item">
+                            <div class="education-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
                             <div class="education-content">
                                 <h4>B.E. in Computer Science & Engineering - Data Science</h4>
                                 <p class="education-school">SJB Institute of Technology, Bangalore</p>
                                 <p class="education-year">2023 - 2027</p>
+                                <div class="education-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="--progress: 40%"></div>
+                                    </div>
+                                    <span class="progress-text">In Progress</span>
+                                </div>
                             </div>
                         </div>
+                        
                         <div class="education-item">
+                            <div class="education-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
                             <div class="education-content">
-                                <h4>My Learnings</h4>
-                                <p class="education-school">Online Platforms used</p>
-                                    <span class="platform-tag">Udemy</span>
-                                    <span class="platform-tag">GeeksforGeeks</span>
-                                    <span class="platform-tag">YouTube</span>
-                                
+                                <h4>Self-Learning Journey</h4>
+                                <p class="education-school">Online Platforms & Resources</p>
+                                <div class="learning-platforms">
+                                    <span class="platform-tag">
+                                        <i class="fab fa-youtube"></i>
+                                        YouTube
+                                    </span>
+                                    <span class="platform-tag">
+                                        <i class="fas fa-book"></i>
+                                        Udemy
+                                    </span>
+                                    <span class="platform-tag">
+                                        <i class="fas fa-code"></i>
+                                        GeeksforGeeks
+                                    </span>
+                                    <span class="platform-tag">
+                                        <i class="fab fa-github"></i>
+                                        GitHub
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -111,21 +235,68 @@
                     <h3>Skills & Technologies</h3>
                     <div class="skills-grid">
                         <div class="skill-category">
-                            <h4>Currently Learning</h4>
+                            <div class="category-header">
+                                <h4>Currently Learning</h4>
+                                <div class="category-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                            </div>
                             <div class="skills-list">
-                                <span class="skill-tag learning">Java</span>
-                                <span class="skill-tag learning">SpringBoot</span>
-                                <span class="skill-tag learning">React</span>
-                                <span class="skill-tag learning">Git</span>
-
+                                <div class="skill-tag learning">
+                                    <i class="fab fa-java"></i>
+                                    <span>Java</span>
+                                    <div class="skill-level">
+                                        <div class="level-bar" style="--level: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tag learning">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>SpringBoot</span>
+                                    <div class="skill-level">
+                                        <div class="level-bar" style="--level: 60%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tag learning">
+                                    <i class="fab fa-react"></i>
+                                    <span>React</span>
+                                    <div class="skill-level">
+                                        <div class="level-bar" style="--level: 45%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tag learning">
+                                    <i class="fab fa-git-alt"></i>
+                                    <span>Git</span>
+                                    <div class="skill-level">
+                                        <div class="level-bar" style="--level: 70%"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        
                         <div class="skill-category">
-                            <h4>Interested In</h4>
+                            <div class="category-header">
+                                <h4>Interested In</h4>
+                                <div class="category-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                            </div>
                             <div class="skills-list">
-                                <span class="skill-tag interested">Prompt Engineering</span>
-                                <span class="skill-tag interested">DevOps</span>
-                                <span class="skill-tag interested">Mobile Development</span>
+                                <div class="skill-tag interested">
+                                    <i class="fas fa-robot"></i>
+                                    <span>Prompt Engineering</span>
+                                </div>
+                                <div class="skill-tag interested">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>DevOps</span>
+                                </div>
+                                <div class="skill-tag interested">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Mobile Development</span>
+                                </div>
+                                <div class="skill-tag interested">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>Cloud Computing</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -138,78 +309,123 @@
     <section id="journey" class="journey">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">My Story</span>
                 <h2 class="section-title">My Journey</h2>
-                <p>
-        My journey in the world of technology began with a deep curiosity for how things work behind the scenes. 
-        Starting with the basics of programming in C and Python, I gradually expanded my skill set to include 
-        Java, mastering Object-Oriented Programming concepts and exploring advanced topics such as Functional Programming, 
-        Multithreading, and Exception Handling.
-    </p>
-    <p>
-        As I progressed, I immersed myself in solving Data Structures and Algorithms problems, building real-world 
-        projects, and learning frameworks like Spring Boot to bridge the gap between theoretical knowledge and practical application. 
-        Every step in this journey has strengthened my problem-solving abilities and sharpened my understanding 
-        of software development principles.
-    </p>
-    <p>
-        I continue to push my boundaries, staying committed to learning new technologies, refining my skills, 
-        and preparing myself to contribute meaningfully to impactful projects in the tech industry.
-    </p>
+                <div class="journey-description">
+                    <p>My journey in the world of technology began with a deep curiosity for how things work behind the scenes. 
+                    Starting with the basics of programming in C and Python, I gradually expanded my skill set to include 
+                    Java, mastering Object-Oriented Programming concepts and exploring advanced topics such as Functional Programming, 
+                    Multithreading, and Exception Handling.</p>
+                    
+                    <p>As I progressed, I immersed myself in solving Data Structures and Algorithms problems, building real-world 
+                    projects, and learning frameworks like Spring Boot to bridge the gap between theoretical knowledge and practical application. 
+                    Every step in this journey has strengthened my problem-solving abilities and sharpened my understanding 
+                    of software development principles.</p>
+                    
+                    <p>I continue to push my boundaries, staying committed to learning new technologies, refining my skills, 
+                    and preparing myself to contribute meaningfully to impactful projects in the tech industry.</p>
+                </div>
             </div>
+            
             <div class="journey-content">
                 <div class="journey-timeline">
-                    <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-date">Current</div>
                         <div class="timeline-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div class="timeline-content">
                             <h3>Learning & Growing</h3>
-                            <p class="timeline-date">Current</p>
                             <p>Continuously expanding my knowledge in web development, exploring new technologies, and building my skill set through online courses and personal projects.</p>
+                            <div class="timeline-tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">SpringBoot</span>
+                                <span class="tag">React</span>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-date">Coming Soon</div>
                         <div class="timeline-icon">
                             <i class="fas fa-code"></i>
                         </div>
                         <div class="timeline-content">
                             <h3>Projects in Development</h3>
-                            <p class="timeline-date">Coming Soon</p>
                             <p>Working on exciting projects that showcase my skills. From web applications to creative experiments - stay tuned for updates!</p>
+                            <div class="timeline-tags">
+                                <span class="tag">Full-Stack</span>
+                                <span class="tag">API Development</span>
+                                <span class="tag">Database Design</span>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-date">Future</div>
                         <div class="timeline-icon">
                             <i class="fas fa-briefcase"></i>
                         </div>
                         <div class="timeline-content">
                             <h3>Professional Experience</h3>
-                            <p class="timeline-date">Future</p>
                             <p>Actively seeking opportunities to apply my skills in real-world projects and contribute to innovative teams.</p>
+                            <div class="timeline-tags">
+                                <span class="tag">Software Development</span>
+                                <span class="tag">Team Collaboration</span>
+                                <span class="tag">Problem Solving</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="current-focus">
                     <div class="focus-card">
-                        <div class="focus-icon">
-                            <i class="fas fa-rocket"></i>
+                        <div class="focus-header">
+                            <div class="focus-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3>Currently Focused On</h3>
                         </div>
-                        <h3>Currently Focused On</h3>
-                        <ul class="focus-list">
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <span>Mastering Java & SpringBoot</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <span>Building full-stack applications</span>
-                            </li>
-                        </ul>
+                        
+                        <div class="focus-content">
+                            <div class="focus-item">
+                                <div class="focus-item-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="focus-item-content">
+                                    <h4>Mastering Java & SpringBoot</h4>
+                                    <p>Building robust backend applications and RESTful APIs</p>
+                                </div>
+                            </div>
+                            
+                            <div class="focus-item">
+                                <div class="focus-item-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="focus-item-content">
+                                    <h4>Full-Stack Development</h4>
+                                    <p>Connecting frontend and backend for complete solutions</p>
+                                </div>
+                            </div>
+                            
+                            <div class="focus-item">
+                                <div class="focus-item-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="focus-item-content">
+                                    <h4>Data Structures & Algorithms</h4>
+                                    <p>Solving complex problems with optimal solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="coming-soon">
-                            <p><strong>Portfolio Updates Coming Soon!</strong></p>
+                            <div class="coming-soon-header">
+                                <i class="fas fa-star"></i>
+                                <strong>Portfolio Updates Coming Soon!</strong>
+                            </div>
                             <p>I'm currently working on several exciting projects that will be showcased here. Check back soon for updates!</p>
                         </div>
                     </div>
@@ -222,12 +438,14 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">Get In Touch</span>
                 <h2 class="section-title">Let's Work Together</h2>
                 <p class="section-subtitle">Have a project in mind? Let's discuss it!</p>
             </div>
+            
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -236,7 +454,8 @@
                             <a href="mailto:joshuadias205@gmail.com">joshuadias205@gmail.com</a>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="contact-icon">
                             <i class="fab fa-linkedin"></i>
                         </div>
@@ -245,7 +464,8 @@
                             <a href="https://www.linkedin.com/in/joshuadias205profess" target="_blank">linkedin.com/in/joshuadias205profess/</a>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
                         <div class="contact-icon">
                             <i class="fab fa-github"></i>
                         </div>
@@ -254,28 +474,51 @@
                             <a href="https://github.com/Joshdias01" target="_blank">github.com/Joshdias01</a>
                         </div>
                     </div>
+                    
+                    <div class="availability-status">
+                        <div class="status-indicator">
+                            <div class="status-dot"></div>
+                            <span>Available for opportunities</span>
+                        </div>
+                        <p>I'm currently open to internships, freelance projects, and full-time opportunities. Let's create something amazing together!</p>
+                    </div>
                 </div>
                 
-                <form class="contact-form" action="https://formspree.io/f/manbabnz" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                <form class="contact-form" action="https://formspree.io/f/manbabnz" method="POST" data-aos="fade-up" data-aos-delay="400">
+                    <div class="form-header">
+                        <h3>Send me a message</h3>
+                        <p>I'll get back to you within 24 hours</p>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                            <div class="form-focus"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="form-focus"></div>
+                        </div>
                     </div>
+                    
                     <div class="form-group">
                         <label for="subject">Subject</label>
                         <input type="text" id="subject" name="subject" required>
+                        <div class="form-focus"></div>
                     </div>
+                    
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
+                        <div class="form-focus"></div>
                     </div>
+                    
                     <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span>
                         <i class="fas fa-paper-plane"></i>
-                        Send Message
+                        <div class="btn-glow"></div>
                     </button>
                 </form>
             </div>
@@ -286,18 +529,34 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Joshua dias. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/joshuadias205profess" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/Joshdias01" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://x.com/Joshuad71020442?t=VtLWzZKIv7q6orboFrxmeQ&s=09" target="_blank" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <span class="logo-text">Josh</span>
+                    </div>
+                    <p>&copy; 2025 Joshua Dias. All rights reserved.</p>
                 </div>
+                
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/joshuadias205profess" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/Joshdias01" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com/Joshuad71020442?t=VtLWzZKIv7q6orboFrxmeQ&s=09" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="footer-quote">
+                        <p>"Code is like humor. When you have to explain it, it's bad." - Cory House</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-wave"></div>
             </div>
         </div>
     </footer>
@@ -305,7 +564,11 @@
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
+        <div class="btn-ripple"></div>
     </button>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
 
     <script src="script.js"></script>
 </body>
