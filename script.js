@@ -92,22 +92,30 @@ function initScrollEffects() {
                     });
                 }
                 
-                // Animate project cards with stagger effect
-                if (entry.target.classList.contains('projects-grid')) {
-                    const projectCards = entry.target.querySelectorAll('.project-card');
-                    projectCards.forEach((card, index) => {
+                // Animate timeline items with stagger effect
+                if (entry.target.classList.contains('journey-timeline')) {
+                    const timelineItems = entry.target.querySelectorAll('.timeline-item');
+                    timelineItems.forEach((item, index) => {
                         setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 200);
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateX(0)';
+                        }, index * 300);
                     });
+                }
+                
+                // Animate focus card
+                if (entry.target.classList.contains('focus-card')) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, 200);
                 }
             }
         });
     }, observerOptions);
     
     // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.loading, .skills-list, .projects-grid, .contact-item');
+    const animatedElements = document.querySelectorAll('.loading, .skills-list, .journey-timeline, .focus-card, .contact-item');
     animatedElements.forEach(el => {
         el.classList.add('loading');
         observer.observe(el);
@@ -121,13 +129,21 @@ function initScrollEffects() {
         tag.style.transition = 'all 0.5s ease-out';
     });
     
-    // Initialize project cards for animation
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'all 0.6s ease-out';
+    // Initialize timeline items for animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-30px)';
+        item.style.transition = 'all 0.6s ease-out';
     });
+    
+    // Initialize focus card for animation
+    const focusCard = document.querySelector('.focus-card');
+    if (focusCard) {
+        focusCard.style.opacity = '0';
+        focusCard.style.transform = 'translateY(30px) scale(0.95)';
+        focusCard.style.transition = 'all 0.8s ease-out';
+    }
 }
 
 // Advanced animations
@@ -423,10 +439,8 @@ window.addEventListener('scroll', optimizedScroll);
 // Preload images
 function preloadImages() {
     const images = [
-        'assets/profile-photo.jpg',
-        'assets/project1.jpg',
-        'assets/project2.jpg',
-        'assets/project3.jpg'
+        'assets/profile-photo.jpg'
+        // Add more images when you have projects
     ];
     
     images.forEach(src => {
